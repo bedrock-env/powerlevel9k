@@ -17,6 +17,23 @@
           }
         ]
       }
+    },
+    "ubuntu": {
+      "apt": {
+        "install_steps": [
+          {
+            "binary": "git",
+            "command": "clone https://github.com/bhilburn/powerlevel9k.git $BEDROCK_DIR/vendor/powerlevel9k",
+            "runif": "[ ! -d \"$BEDROCK_DIR/vendor/powerlevel9k\" ] && [ ! `git rev-parse --is-inside-work-tree` ]"
+          }
+        ],
+        "update_steps": [
+          {
+            "binary": "git",
+            "command": "-C $BEDROCK_DIR/vendor/powerlevel9k pull"
+          }
+        ]
+      }
     }
   }
 }
